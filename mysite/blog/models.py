@@ -6,10 +6,10 @@ from django.urls import reverse
 
 
 class Post(models.Model):
-    author=models.ForeignKey('auth.user')
+    author=models.ForeignKey('auth.user', on_delete=models.CASCADE)
     title=models.CharField(max_length=254)
     text=models.TextField()
-    create_date=models.DateTimeField(default=timezone.now())
+    created_date=models.DateTimeField(default=timezone.now())
     published_date=models.DateTimeField(blank=True,null=True)
 
     def publish(self):
@@ -17,7 +17,7 @@ class Post(models.Model):
         self.save()
 
     def approve_comments(self):
-        return self.comments.filter(approved_comments=True)
+        return self.comments.filter(approved_comment=True)
 
     def get_absolute_url(self):
         return reverse("post_detail",kwargs={'pk':self.pk})
@@ -28,10 +28,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post=models.ForeignKey('blog.Post',related_name='comments')
+    post=models.ForeignKey('blog.Post',related_name='comments', on_delete=models.CASCADE)
     author=models.CharField(max_length=200)
     text=models.TextField()
-    create_date=models.DateTimeField(default=timezone.now())
+    create_date=models.DateTimeField(default=timezone.now)
     approved_comment=models.BooleanField(default=False)
 
     def approve(self):

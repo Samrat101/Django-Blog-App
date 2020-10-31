@@ -1,8 +1,34 @@
 .techfont{
   font-family:'Russo One',sans-serif;
   font-size:1.5em;
-  margin-bottom:10pc;
+  border: 0px;
 }
 .bigbrand{
   font-size:1.5em;
+}
+#nav_link{
+  color:#f0a500;
+}
+.postdate{
+  text-align:center;
+}
+.posttitle{
+  font-family: 'Russo One',sans-serif;
+  font-size:3em;
+  text-align:center;
+}
+.postcontent{
+  font-family: 'Montserrat';
+  font-size:1.5em;
+}
+.btn-comment{
+  position:absolute;
+  right:0px;
+}
+.centerstage{
+  margin-left: auto;
+  margin-right: auto;
+}
+body{
+  background-color:#ffcc4a;
 }
