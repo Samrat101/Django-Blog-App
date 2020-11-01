@@ -1,24 +1,22 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-<div>
-  <div class="col-md-8">
-      <h1><strong>WELCOME BACK</strong> </h1>
+    <div class="col-md-6">
+      <h1><strong>WELCOME BACK</strong></h1>
       <h1 style="font-family:Ruso one"><strong>{{user.username}}</strong> </h1>
-  </div>
-
-  <div class="col-md-4">
-    <div class="centerstage">
+    </div>
+    
+  <div class="col-md-6">
+    <div class="centerstage" >
         {% for post in post_list %}
-        <div class="post">
-          <h1><a href="{% url 'post_detail' pk=post.pk %}"><strong>{{post.title}}</strong></a></h1>
+        <div class="post" style="background-color:#a2a7b0">
+          <h1 style="margin-left:10px" ><a style="color:black" href="{% url 'post_detail' pk=post.pk %}"><strong>{{post.title}}</strong></a></h1>
           <div class="date">
-            <p><strong>Created On: {{post.created_date|date:"D M Y"}}</strong></p>
+            <p style="margin-left:10px" ><strong>Created On: {{post.created_date|date:"D M Y"}}</strong></p>
           </div>
-          <a href="{% url 'post_detail' pk=post.pk %}"><strong>Comments: {{post.approve_comments.count}}</strong></a>
+          <a style="margin-left:10px"  href="{% url 'post_detail' pk=post.pk %}"><strong>Comments: {{post.approve_comments.count}}</strong></a>
         </div>
         {% endfor %}
     </div>
   </div>
-</div>
 {% endblock %}
